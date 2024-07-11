@@ -65,13 +65,13 @@ function Navbar() {
                                 <Link className='h-full flex items-center' href='/products'>Men</Link>
                             </li>
                             <li className='h-full'>
-                                <Link className='h-full flex items-center' href='/pricing'>Women</Link>
+                                <Link className='h-full flex items-center' href='/products'>Women</Link>
                             </li>
                             <li className='text-darkBlue h-full'>
-                                <Link className='h-full flex items-center' href='/login'>Kids</Link>
+                                <Link className='h-full flex items-center' href='/products'>Kids</Link>
                             </li>
                             <li className='text-darkBlue h-full'>
-                                <Link className='h-full flex items-center' href='/login'>On Sale</Link>
+                                <Link className='h-full flex items-center' href='/products'>On Sale</Link>
                             </li>
                         </ul>
                     </div>
