@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { CartContext } from '@/contexts/cartContext'
+import { CartContext } from '../contexts/cartContext'
 
 
 function Navbar() {
