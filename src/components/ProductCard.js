@@ -1,10 +1,19 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, {useContext} from 'react'
 
-function PopularCard({name,price,img,productId}) {
-    const imgUrl = `https://api.timbu.cloud/images/${img}`
+function ProductCard({name,price,img,productId, handleAddItem}) {
     const router = useRouter()
+    // const { state, dispatch } = useContext(CartContext)
+
+    // const handleAddItem = () => {
+    //     console.log('adding to cart')
+    //     dispatch({ type: 'ADD_ITEM', payload: {
+    //         name,
+    //         amount:price,
+    //         image:`https://api.timbu.cloud/images/${img}`
+    //     } })
+    // }
 
     const gotoDetails = () => {
         console.log('going to details')
@@ -12,21 +21,23 @@ function PopularCard({name,price,img,productId}) {
     }
 
   return (
-    <div className='flex flex-col w-full lg:w-[286px] cursor-pointer' onClick={gotoDetails}>
-        <div className='w-[286px] h-[260px]'>
+    <div className='flex flex-col w-full lg:w-[286px] cursor-pointer lg:mb-6 mb-3'>
+        <div className='w-[286px] h-[260px] lg:mb-6 mb-4' onClick={gotoDetails}>
             <Image
-                src='/assets/products/hill-shoe.png'
+                src={`https://api.timbu.cloud/images/${img}`}
                 width='286'
                 height='260'
                 alt='product'
                 objectFit="cover"
-                className='mb-4 object-center max-w-[286px] max-h-[260px]'
+                className='object-center max-w-[286px] max-h-[260px]'
             />
         </div>
         <div className='flex flex-col'>
             <div className='flex justify-between mb-1'>
-                <h3 className='text-base font-medium text-[#101928]'>Court Heels</h3>
-                <h3 className='font-semibold text-lg'>₦ 30,000</h3>
+                <h3 className='text-base font-medium text-[#101928]'>{name}</h3>
+                {/* <h3 className='text-base font-medium text-[#101928]'>Court Heels</h3> */}
+                <h3 className='font-semibold text-lg'>₦ {price}</h3>
+                {/* <h3 className='font-semibold text-lg'>₦ 30,000</h3> */}
             </div>
             <div className='mb-4'>
                 <h4 className='font-normal text-xs mb-1'>Red Silettos</h4>
@@ -47,11 +58,11 @@ function PopularCard({name,price,img,productId}) {
                 <path d="M7.75 17.2916C7.75 17.8669 7.28363 18.3333 6.70833 18.3333C6.13304 18.3333 5.66667 17.8669 5.66667 17.2916C5.66667 16.7163 6.13304 16.2499 6.70833 16.2499C7.28363 16.2499 7.75 16.7163 7.75 17.2916Z" fill="#475367"/>
                 <path d="M14.2083 18.3333C14.7836 18.3333 15.25 17.8669 15.25 17.2916C15.25 16.7163 14.7836 16.2499 14.2083 16.2499C13.633 16.2499 13.1667 16.7163 13.1667 17.2916C13.1667 17.8669 13.633 18.3333 14.2083 18.3333Z" fill="#475367"/>
                 </svg>
-                <h4 className='font-semibold text-sm text-[#475367]'>Add to Cart</h4>
+                <h4 className='font-semibold text-sm text-[#475367]' onClick={handleAddItem}>Add to Cart</h4>
             </div>
         </div>
     </div>
   )
 }
 
-export default PopularCard
+export default ProductCard
