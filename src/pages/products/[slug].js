@@ -1,11 +1,42 @@
+import { GET_PRODUCT } from '@/utils/endpoints'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 function ProductDetails() {
     const router = useRouter()
+    const productId = router.query.slug
+    console.log(productId)
+    const [product, setProduct] = useState({})
+    const [quantity, setQuantity] = useState(0)
+
+    const handleIncrease = () => {
+        setQuantity(quantity+1)
+    }
+
+    const handleDecrease = () => {
+        if(quantity > 1){
+            setQuantity(quantity-1)
+        }
+    }
+
+    const handleGetProduct = async() => {
+        try{
+            const response = await axios.get(GET_PRODUCT(productId))
+            // setProduct(response.data.items)
+            console.log(response.data)
+        }catch(err){
+            console.log(err)
+        }
+    }
+
+    useEffect(()=>{
+        handleGetProduct()
+    },[])
+
     return (
-        <div className='px-[100px] py-[91px] flex justify-between'>
+        <div className='lg:px-[100px] px-3 py-[91px] flex flex-col lg:flex-row justify-between'>
             <div className='lg:w-[548px]'>
                 <Image
                     src="/assets/products/sneaker.png"
@@ -14,7 +45,7 @@ function ProductDetails() {
                     alt='product'
                     className='mb-4 rounded-[10px]'
                 />
-                <div className='flex justify-between'>
+                <div className='hidden lg:flex justify-between'>
                     <Image
                         src="/assets/products/sneaker.png"
                         width='122'
@@ -76,14 +107,20 @@ function ProductDetails() {
                     className='mb-12'
                 />
                 <h3 className='mb-4'>Quantity</h3>
-                <Image
-                    src="/assets/images/quantity.png"
-                    width='532'
-                    height='56'
-                    alt='color'
-                    className='mb-6'
-                />
-                <div className='flex gap-4 mb-8'>
+                <div className='flex flex-col lg:flex-row mb-6 gap-4 lg:items-center'>
+                    <div className='flex w-[200px] rounded-[40px] justify-between items-center bg-[#F0F2F5] py-5 px-[30px]'>
+                        <button className='text-[#667185] text-2xl' onClick={handleDecrease}>-</button>
+                        <h3 className='text-[#F56630] font-semibold text-xl'>{quantity}</h3>
+                        <button className='text-[#F56630] text-2xl' onClick={handleIncrease}>+</button>
+                    </div>
+                    <div className='lg:w-[139px]'>
+                            <h3 className='font-normal text-sm text-[#667185'>
+                        Only <span className='text-[#F56630]'>12 Items</span> Left!
+                        Don’t miss it
+                        </h3>
+                    </div>
+                </div>
+                <div className='flex flex-col lg:flex-row gap-4 mb-8'>
                     <button className="bg-[#F56630] text-white flex lg:w-[194px] rounded-[30px] h-[56px] items-center 
                             justify-center text-base font-semibold">Buy Now
                     </button>

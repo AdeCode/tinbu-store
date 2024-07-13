@@ -1,25 +1,67 @@
 import PopularCard from '@/components/PopularCard'
-import React from 'react'
+import { GET_PRODUCTS } from '@/utils/endpoints'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import CardLoader from '@/components/skeleton-loader/CardLoader'
 
 function Index() {
+    const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(false)
+
+    const handleGetProducts = async() => {
+        try{
+            setLoading(true)
+            const response = await axios.get(GET_PRODUCTS())
+            setProducts(response.data.items)
+            setLoading(false)
+            console.log(response.data)
+        }catch(err){
+            console.log(err)
+            setLoading(false)
+        }
+    }
+
+    useEffect(()=>{
+        handleGetProducts()
+    },[])
     return (
-        <div className='flex justify-center px-[100px] pt-10 lg:mb-[91px]'>
+        <div className='flex justify-center px-3 lg:px-[100px] pt-10 lg:mb-[91px]'>
             <div className='flex flex-col'>
-                <div className='flex gap-5 mb-6'>
+                <div className='flex flex-col lg:flex-row gap-5 mb-6'>
+                    {
+                        loading ? 
+                        <div className='flex gap-8'>
+                            <CardLoader/>
+                            <CardLoader/>
+                            <CardLoader/>
+                        </div>
+                        :
+                        products.map((product,index) => (
+                            <PopularCard 
+                                name={product.name}
+                                img={product.photos[0].url}
+                                price={product.current_price[0].NGN[0]}
+                                key={index}
+                                productId={product.id}
+                            />
+                        ))
+                    }
+                </div>
+                {/* <div className='flex flex-col lg:flex-row gap-5 mb-6'>
                     <PopularCard />
                     <PopularCard />
                     <PopularCard />
                 </div>
-                <div className='flex gap-5 mb-6'>
+                <div className='flex flex-col lg:flex-row gap-5 mb-6'>
                     <PopularCard />
                     <PopularCard />
                     <PopularCard />
                 </div>
-                <div className='flex gap-5 mb-6'>
+                <div className='flex flex-col lg:flex-row gap-5 mb-6'>
                     <PopularCard />
                     <PopularCard />
                     <PopularCard />
-                </div>
+                </div> */}
                 <div className='bg-white flex justify-between pt-4 pb-2'>
                     <button className="bg-white text-[#344054] flex lg:w-[141px] rounded-lg h-[56px] items-center 
                             justify-center border border-[#D0D5DD] text-base font-semibold gap-2">
