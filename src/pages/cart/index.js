@@ -13,7 +13,9 @@ function Index() {
         dispatch({ type: 'ADD_ITEM', payload: {
             name:product.name,
             price:product.current_price[0].NGN[0],
-            image:`https://api.timbu.cloud/images/${product.photos[0].url}`
+            image:`https://api.timbu.cloud/images/${product.photos[0].url}`,
+            quantity:1,
+            id:product.id
         } })
     }
 

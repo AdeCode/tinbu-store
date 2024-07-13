@@ -10,18 +10,19 @@ function ProductDetails() {
     const productId = router.query.slug
     const [productLoading, setProductLoading] = useState(false)
     const [product, setProduct] = useState({})
-    const [quantity, setQuantity] = useState(0)
+    const [quantity, setQuantity] = useState(1)
 
     const {state, dispatch} = useContext(CartContext)
 
-    const handleAddItem = (product) => {
-        console.log('selected', product)
-        // dispatch({ type: 'ADD_ITEM', payload: {
-        //     name:product.name,
-        //     price:product.current_price[0].NGN[0],
-        //     image:`https://api.timbu.cloud/images/${product.photos[0].url}`,
-        //     id:product.id
-        // } })
+    const handleAddItem = () => {
+        // console.log(product)
+        dispatch({ type: 'ADD_ITEM', payload: {
+            name:product.name,
+            price:product.current_price,
+            image:`https://api.timbu.cloud/images/${product.photos[0].url}`,
+            id:product.id,
+            quantity:quantity
+        } })
     }
 
     const handleIncrease = () => {
@@ -61,7 +62,7 @@ function ProductDetails() {
                     <div className='lg:px-[100px] px-3 py-[91px] flex flex-col lg:flex-row justify-between'>
                         <div className='lg:w-[548px]'>
                             <div className='min-w-[548px] min-h-[696px]'>
-                                {/* {
+                                {
                                     product ? 
                                     <Image
                                         src={`https://api.timbu.cloud/images/${product?.photos[0].url}`}
@@ -72,7 +73,7 @@ function ProductDetails() {
                                     />
                                     :
                                     ''
-                                } */}
+                                }
                             </div>
                             <div className='hidden lg:flex justify-between'>
                                 <Image
@@ -154,7 +155,7 @@ function ProductDetails() {
                                 <button className="bg-[#F56630] text-white flex lg:w-[194px] rounded-[30px] h-[56px] items-center 
                             justify-center text-base font-semibold">Buy Now
                                 </button>
-                                <button onClick={handleAddItem} className="bg-white border border-[#F56630] text-[#F56630] flex lg:w-[194px] rounded-[30px] h-[56px] items-center 
+                                <button onClick={()=>handleAddItem()} className="bg-white border border-[#F56630] text-[#F56630] flex lg:w-[194px] rounded-[30px] h-[56px] items-center 
                             justify-center text-base font-semibold">Add to Cart
                                 </button>
                             </div>
