@@ -5,7 +5,7 @@ function FeaturedCollection() {
     return (
         <section className='lg:mb-[91px] mb-5'>
             <div className='flex justify-between'>
-                <h2 className='text-brand-black font-semibold text-[28px] mb-[32px]'>Featured Collections</h2>
+                <h2 className='text-brand-black font-semibold lg:text-[28px] text-xl lg:mb-[32px] mb-4'>Featured Collections</h2>
                 <div className='flex gap-2'>
                     <h3 className='text-brand-orange text-sm font-semibold'>View all</h3>
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -13,7 +13,7 @@ function FeaturedCollection() {
                     </svg>
                 </div>
             </div>
-            <div className='flex justify-between'>
+            <div className='flex flex-col lg:flex-row justify-between'>
                 <div className='lg:w-[596px] flex flex-col justify-between bg-bg-left bg-center bg-cover pt-10 px-10 pb-20'>
                     <h3 className='bg-brand-orange lg:w-[205px] text-white text-sm font-semibold rounded-xl py-1 px-3'>
                         WORLD GIRLFRIEND’S DAY
@@ -32,7 +32,7 @@ function FeaturedCollection() {
                     </div>
                 </div>
                 <div className='flex flex-col w-[596px] gap-6'>
-                    <div className=''>
+                    <div className='lg:flex w-full lg:w-[596px] hidden'>
                         <Image
                             src='/assets/products/adidas.png'
                             width="596"
@@ -41,7 +41,7 @@ function FeaturedCollection() {
                             className='rounded-[10px]'
                         />
                     </div>
-                    <div className=''>
+                    <div className='lg:flex w-full lg:w-[596px] hidden'>
                         <Image
                             src='/assets/products/hill.png'
                             width="596"

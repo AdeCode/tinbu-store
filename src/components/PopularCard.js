@@ -2,27 +2,32 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
 
-function PopularCard() {
+function PopularCard({name,price,img,productId}) {
+    const imgUrl = `https://api.timbu.cloud/images/${img}`
     const router = useRouter()
 
     const gotoDetails = () => {
         console.log('going to details')
-        router.push('/products/ssj77')
+        router.push(`/products/${productId}`)
     }
 
   return (
-    <div className='flex flex-col lg:w-[286px] cursor-pointer' onClick={gotoDetails}>
-        <Image
-            src="/assets/products/hill-shoe.png"
-            width='286'
-            height='260'
-            alt='product'
-            className='mb-4'
-        />
+    <div className='flex flex-col w-full lg:w-[286px] cursor-pointer' onClick={gotoDetails}>
+        <div className='w-[286px] h-[260px]'>
+            <Image
+                src={`https://api.timbu.cloud/images/${img}`}
+                width='286'
+                height='260'
+                alt='product'
+                className='mb-4'
+            />
+        </div>
         <div className='flex flex-col'>
             <div className='flex justify-between mb-1'>
-                <h3 className='text-base font-medium text-[#101928]'>Court Heels</h3>
-                <h3 className='font-semibold text-lg'>₦ 30,000</h3>
+                <h3 className='text-base font-medium text-[#101928]'>{name}</h3>
+                {/* <h3 className='text-base font-medium text-[#101928]'>Court Heels</h3> */}
+                <h3 className='font-semibold text-lg'>₦ {price}</h3>
+                {/* <h3 className='font-semibold text-lg'>₦ 30,000</h3> */}
             </div>
             <div className='mb-4'>
                 <h4 className='font-normal text-xs mb-1'>Red Silettos</h4>
