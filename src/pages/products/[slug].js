@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
-import { CartContext } from '../../contexts/cartContext'
+import { CartContext } from '@/contexts/cartContext'
 
 function ProductDetails() {
     const router = useRouter()

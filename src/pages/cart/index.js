@@ -1,5 +1,5 @@
 import CartCard from '@/components/CartCard'
-import { CartContext } from '../../contexts/cartContext'
+import { CartContext } from '@/contexts/cartContext'
 import { useRouter } from 'next/router'
 import React, {useContext} from 'react'
 
