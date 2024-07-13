@@ -4,7 +4,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import CardLoader from '@/components/skeleton-loader/CardLoader'
 import ProductCard from '@/components/ProductCard'
-import { CartContext } from '@/contexts/cartContext'
+import { CartContext } from '../../contexts/cartContext'
 
 
 function Index() {

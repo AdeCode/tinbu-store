@@ -1,4 +1,4 @@
-import { CartContext } from '@/contexts/cartContext'
+import { CartContext } from '../contexts/cartContext'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React, {useContext} from 'react'
