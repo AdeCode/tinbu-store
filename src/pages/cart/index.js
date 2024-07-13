@@ -1,7 +1,7 @@
 import CartCard from '@/components/CartCard'
+import { CartContext } from '@/contexts/cartContext'
 import { useRouter } from 'next/router'
 import React, {useContext} from 'react'
-import {CartContext} from '../../contexts/cartContext'
 
 function Index() {
     const router = useRouter()
