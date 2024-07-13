@@ -63,7 +63,7 @@ function ProductDetails() {
                         <div className='lg:w-[548px]'>
                             <div className='min-w-[548px] min-h-[696px]'>
                                 {
-                                    product ? 
+                                    product?.photos?.length > 0 ? 
                                     <Image
                                         src={`https://api.timbu.cloud/images/${product?.photos[0].url}`}
                                         width='548'
@@ -75,8 +75,26 @@ function ProductDetails() {
                                     ''
                                 }
                             </div>
-                            <div className='hidden lg:flex justify-between'>
-                                <Image
+                            <div className='hidden lg:grid lg:grid-cols-4'>
+                                {
+                                    product?.photos?.length > 0 ? 
+                                    product?.photos.map((photo,index)=>(
+                                        <div className='w-[122px] h-[120px]'>
+                                            <Image
+                                                src={`https://api.timbu.cloud/images/${photo.url}`}
+                                                width='122'
+                                                height='120'
+                                                alt='product details'
+                                                className='object-center rounded-[10px] max-w-[122px] max-h-[120px]'
+                                                key={index}
+                                            />
+                                        </div>
+                                    ))
+                                    :
+                                    ''
+                                
+                                }
+                                {/* <Image
                                     src="/assets/products/sneaker.png"
                                     width='122'
                                     height='120'
@@ -103,7 +121,7 @@ function ProductDetails() {
                                     height='120'
                                     alt='product details'
                                     className='rounded-[10px]'
-                                />
+                                /> */}
                             </div>
                         </div>
                         <div className='lg:w-[570px] flex flex-col'>
