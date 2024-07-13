@@ -1,12 +1,31 @@
 import PopularCard from '@/components/PopularCard'
 import { GET_PRODUCTS } from '@/utils/endpoints'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import CardLoader from '@/components/skeleton-loader/CardLoader'
+import ProductCard from '@/components/ProductCard'
+import { CartContext } from '@/contexts/cartContext'
+
 
 function Index() {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(false)
+    const { dispatch } = useContext(CartContext)
+
+    // const {state} = useContext(CartContext)
+
+    const handleAddItem = (product) => {
+        dispatch({ type: 'ADD_ITEM', payload: {
+            name:product.name,
+            price:product.current_price[0].NGN[0],
+            image:`https://api.timbu.cloud/images/${product.photos[0].url}`,
+            id:product.id
+        } })
+    }
+
+    const clearCart = () => {
+        dispatch({ type: 'CLEAR_CART' })
+    }
 
     const handleGetProducts = async() => {
         try{
@@ -23,28 +42,35 @@ function Index() {
 
     useEffect(()=>{
         handleGetProducts()
+        // clearCart()
     },[])
     return (
         <div className='flex justify-center px-3 lg:px-[100px] pt-10 lg:mb-[91px]'>
             <div className='flex flex-col'>
-                <div className='flex flex-col lg:flex-row gap-5 mb-6'>
+                {/* <div className='flex flex-col lg:flex-row gap-5 mb-6'> */}
+                <div className=''>
                     {
                         loading ? 
-                        <div className='flex gap-8'>
+                        <div className='flex gap-8 justify-center'>
                             <CardLoader/>
                             <CardLoader/>
                             <CardLoader/>
                         </div>
                         :
-                        products.map((product,index) => (
-                            <PopularCard 
-                                name={product.name}
-                                img={product.photos[0].url}
-                                price={product.current_price[0].NGN[0]}
-                                key={index}
-                                productId={product.id}
-                            />
-                        ))
+                        <div className='grid lg:grid-cols-3 gap-5 mb-6'>
+                            {
+                                products.map((product,index) => (
+                                    <ProductCard 
+                                        name={product.name}
+                                        img={product.photos[0].url}
+                                        price={product.current_price[0].NGN[0]}
+                                        key={index}
+                                        productId={product.id}
+                                        handleAddItem={()=>handleAddItem(product)}
+                                    />
+                                ))
+                            }
+                        </div>
                     }
                 </div>
                 {/* <div className='flex flex-col lg:flex-row gap-5 mb-6'>

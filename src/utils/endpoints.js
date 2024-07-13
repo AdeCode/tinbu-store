@@ -9,4 +9,4 @@ const productsUrl = `${BASE_URL}/?organization_id=${orgId}&reverse_sort=false&pa
 
 // export const GET_PRODUCTS = () => `${BASE_URL}/products?organization_id=${orgId}&reverse_sort=false&page=2&size=10&Appid=${appId}&Apikey=${apiKey}`;
 export const GET_PRODUCTS = () => `${productsUrl}`;
-export const GET_PRODUCT = (id) => `${URL}/products/${id}/?organization_id=${orgId}`;
+export const GET_PRODUCT = (id) => `https://timbu-get-single-product.reavdev.workers.dev/${id}/?organization_id=${orgId}&Appid=${appId}&Apikey=${apiKey}`;
