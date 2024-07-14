@@ -16,7 +16,6 @@ function ProductCard({name,price,img,productId, handleAddItem}) {
     // }
 
     const gotoDetails = () => {
-        console.log('going to details')
         router.push(`/products/${productId}`)
     }
 
