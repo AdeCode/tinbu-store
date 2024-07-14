@@ -9,6 +9,11 @@ function Index() {
 
     console.log('state from cart', state)
 
+    const calculateTotal = () => {
+        const totalAmount = state.items.reduce((total, item) => total + (item.price*item.quantity), 0);
+        return totalAmount
+    }
+
     const handleAddItem = (product) => {
         dispatch({ type: 'ADD_ITEM', payload: {
             name:product.name,
@@ -43,6 +48,10 @@ function Index() {
                             handleDeleteItem={handleDeleteItem}
                             key={index}
                             id={item.id}
+                            name={item.name}
+                            image={item.image}
+                            price={item.price}
+                            quantity={item.quantity}
                         />
                     ))
                 }
@@ -60,7 +69,7 @@ function Index() {
                 <h3 className='font-semibold text-[#101928] text-base pb-7 border-b border-[#d4d5d8]'>Cart Summary</h3>
                 <div className='flex justify-between mb-7 pt-6'>
                     <h4 className='font-medium text-sm text-[#475367]'>Sub Total</h4>
-                    <span className='font-semibold text-base text-[#1D2739]'>₦ 99,000</span>
+                    <span className='font-semibold text-base text-[#1D2739]'>₦ {calculateTotal()}</span>
                 </div>
                 <button 
                     onClick={()=>router.push('/checkout')}
