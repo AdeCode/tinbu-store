@@ -19,7 +19,8 @@ function Index() {
             name:product.name,
             price:product.current_price[0].NGN[0],
             image:`https://api.timbu.cloud/images/${product.photos[0].url}`,
-            id:product.id
+            id:product.id,
+            quantity:1
         } })
     }
 

@@ -10,18 +10,19 @@ function ProductDetails() {
     const productId = router.query.slug
     const [productLoading, setProductLoading] = useState(false)
     const [product, setProduct] = useState({})
-    const [quantity, setQuantity] = useState(0)
+    const [quantity, setQuantity] = useState(1)
 
     const {state, dispatch} = useContext(CartContext)
 
-    const handleAddItem = (product) => {
-        console.log('selected', product)
-        // dispatch({ type: 'ADD_ITEM', payload: {
-        //     name:product.name,
-        //     price:product.current_price[0].NGN[0],
-        //     image:`https://api.timbu.cloud/images/${product.photos[0].url}`,
-        //     id:product.id
-        // } })
+    const handleAddItem = () => {
+        // console.log(product)
+        dispatch({ type: 'ADD_ITEM', payload: {
+            name:product.name,
+            price:product.current_price,
+            image:`https://api.timbu.cloud/images/${product.photos[0].url}`,
+            id:product.id,
+            quantity:quantity
+        } })
     }
 
     const handleIncrease = () => {
@@ -61,8 +62,8 @@ function ProductDetails() {
                     <div className='lg:px-[100px] px-3 py-[91px] flex flex-col lg:flex-row justify-between'>
                         <div className='lg:w-[548px]'>
                             <div className='min-w-[548px] min-h-[696px]'>
-                                {/* {
-                                    product ? 
+                                {
+                                    product?.photos?.length > 0 ? 
                                     <Image
                                         src={`https://api.timbu.cloud/images/${product?.photos[0].url}`}
                                         width='548'
@@ -72,10 +73,28 @@ function ProductDetails() {
                                     />
                                     :
                                     ''
-                                } */}
+                                }
                             </div>
-                            <div className='hidden lg:flex justify-between'>
-                                <Image
+                            <div className='hidden lg:grid lg:grid-cols-4'>
+                                {
+                                    product?.photos?.length > 0 ? 
+                                    product?.photos.map((photo,index)=>(
+                                        <div className='w-[122px] h-[120px]'>
+                                            <Image
+                                                src={`https://api.timbu.cloud/images/${photo.url}`}
+                                                width='122'
+                                                height='120'
+                                                alt='product details'
+                                                className='object-center rounded-[10px] max-w-[122px] max-h-[120px]'
+                                                key={index}
+                                            />
+                                        </div>
+                                    ))
+                                    :
+                                    ''
+                                
+                                }
+                                {/* <Image
                                     src="/assets/products/sneaker.png"
                                     width='122'
                                     height='120'
@@ -102,7 +121,7 @@ function ProductDetails() {
                                     height='120'
                                     alt='product details'
                                     className='rounded-[10px]'
-                                />
+                                /> */}
                             </div>
                         </div>
                         <div className='lg:w-[570px] flex flex-col'>
@@ -154,7 +173,7 @@ function ProductDetails() {
                                 <button className="bg-[#F56630] text-white flex lg:w-[194px] rounded-[30px] h-[56px] items-center 
                             justify-center text-base font-semibold">Buy Now
                                 </button>
-                                <button onClick={handleAddItem} className="bg-white border border-[#F56630] text-[#F56630] flex lg:w-[194px] rounded-[30px] h-[56px] items-center 
+                                <button onClick={()=>handleAddItem()} className="bg-white border border-[#F56630] text-[#F56630] flex lg:w-[194px] rounded-[30px] h-[56px] items-center 
                             justify-center text-base font-semibold">Add to Cart
                                 </button>
                             </div>
