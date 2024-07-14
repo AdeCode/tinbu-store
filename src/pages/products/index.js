@@ -34,7 +34,6 @@ function Index() {
             const response = await axios.get(GET_PRODUCTS())
             setProducts(response.data.items)
             setLoading(false)
-            console.log(response.data)
         }catch(err){
             console.log(err)
             setLoading(false)

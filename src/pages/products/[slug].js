@@ -42,7 +42,6 @@ function ProductDetails() {
             setProduct(response.data)
             // setProduct(response.data.items)
             setProductLoading(false)
-            console.log(response.data)
         } catch (err) {
             console.log(err)
             setProductLoading(false)

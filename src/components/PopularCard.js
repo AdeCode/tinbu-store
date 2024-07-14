@@ -7,7 +7,6 @@ function PopularCard({name,price,img,productId}) {
     const router = useRouter()
 
     const gotoDetails = () => {
-        console.log('going to details')
         router.push(`/products/${productId}`)
     }
 
