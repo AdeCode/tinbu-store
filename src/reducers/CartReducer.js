@@ -1,15 +1,18 @@
 export const cartReducer = (state, action) => {
     switch(action.type){
         case 'ADD_ITEM':
+            console.log('adding from reducer')
             const updatedItems = [...state.items, action.payload];
+            localStorage.setItem('cart',JSON.stringify(updatedItems))
             return {
                 ...state,
                 items:updatedItems,
             }
 
         case 'DELETE_ITEM':
+            console.log('delete from red')
             const filteredItems = state.items.filter(item => item.id !== action.payload.id);
-            // const reducedTotalAmount = state.totalAmount - action.payload.price;
+            localStorage.setItem('cart',JSON.stringify(filteredItems))
             return {
                 ...state,
                 items:filteredItems,
