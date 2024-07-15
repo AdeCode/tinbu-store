@@ -7,7 +7,6 @@ function Index() {
     const router = useRouter()
     const { dispatch, state } = useContext(CartContext)
 
-    console.log('state from cart', state)
 
     const calculateTotal = () => {
         const totalAmount = state.items.reduce((total, item) => total + (item.price*item.quantity), 0);
