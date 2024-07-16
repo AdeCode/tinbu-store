@@ -48,6 +48,9 @@ function ProductDetails() {
             setProductLoading(false)
         } catch (err) {
             console.log(err)
+            toast.error('Could not load product details', {
+                theme: "colored",
+              })
             setProductLoading(false)
         }
     }

@@ -40,6 +40,9 @@ function Index() {
             setLoading(false)
         }catch(err){
             console.log(err)
+            toast.error('Could not load products', {
+                theme: "colored",
+              })
             setLoading(false)
         }
     }
