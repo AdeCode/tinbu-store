@@ -1,7 +1,7 @@
 import CartCard from '@/components/CartCard'
 import { CartContext } from '@/contexts/cartContext'
 import React, { useContext, useState } from 'react'
-
+import { toast } from "react-toastify";
 
 function Index() {
     const { dispatch, state } = useContext(CartContext)
@@ -13,6 +13,9 @@ function Index() {
 
     const handleDeleteItem = (productId) => {
         dispatch({ type: 'DELETE_ITEM', payload: { id: productId } })
+        toast.success('Item removed from cart', {
+            theme: "colored",
+          })
     }
 
     const calculateTotal = () => {
