@@ -126,20 +126,20 @@ function Index() {
                             <div className='flex flex-col gap-4'>
                                 <div className='flex flex-col'>
                                     <h4 className='font-medium text-sm text-[#344054] mb-1'>Cardholder Name</h4>
-                                    <input type='text' placeholder='Full name' className='w-full text-sm h-[56px] p-4 rounded-md text-[#98A2B3] border border-[#D0D5DD]' />
+                                    <input type='text' required placeholder='Full name' className='w-full text-sm h-[56px] p-4 rounded-md text-[#98A2B3] border border-[#D0D5DD]' />
                                 </div>
                                 <div className='flex flex-col'>
                                     <h4 className='font-medium text-sm text-[#344054] mb-1'>Card Number</h4>
-                                    <input type='text' placeholder='**** **** **** ****' className='w-full text-sm h-[56px] p-4 rounded-md text-[#98A2B3] border border-[#D0D5DD]' />
+                                    <input type='text' required placeholder='**** **** **** ****' className='w-full text-sm h-[56px] p-4 rounded-md text-[#98A2B3] border border-[#D0D5DD]' />
                                 </div>
                                 <div className='flex justify-between'>
                                     <div className='w-[196px]'>
                                         <h4 className='font-medium text-sm text-[#344054] mb-1'>Expiry Date</h4>
-                                        <input type='date' placeholder='MM/YYYY' className='w-full text-sm h-[56px] p-4 rounded-md text-[#98A2B3] border border-[#D0D5DD]' />
+                                        <input type='date' required placeholder='MM/YYYY' className='w-full text-sm h-[56px] p-4 rounded-md text-[#98A2B3] border border-[#D0D5DD]' />
                                     </div>
                                     <div className='w-[148px]'>
                                         <h4 className='font-medium text-sm text-[#344054] mb-1'>CVV</h4>
-                                        <input type='text' placeholder='***' className='w-full text-sm h-[56px] p-4 rounded-md text-[#98A2B3] border border-[#D0D5DD]' />
+                                        <input type='text' required placeholder='***' className='w-full text-sm h-[56px] p-4 rounded-md text-[#98A2B3] border border-[#D0D5DD]' />
                                     </div>
                                 </div>
                             </div>

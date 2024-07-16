@@ -55,13 +55,13 @@ function Index() {
                 <div className=''>
                     {
                         loading ? 
-                        <div className='flex gap-8 justify-center'>
+                        <div className='flex flex-col lg:flex-row gap-8 justify-center'>
                             <CardLoader/>
                             <CardLoader/>
                             <CardLoader/>
                         </div>
                         :
-                        <div className='grid lg:grid-cols-3 gap-5 mb-6'>
+                        <div className='grid lg:grid-cols-3 lg:gap-10 gap-5 mb-6'>
                             {
                                 products.map((product,index) => (
                                     <ProductCard 

@@ -5,24 +5,24 @@ function CartCard({handleDeleteItem,id,name,image,price, quantity}) {
   return (
     <div className='flex justify-between'>
         <div className='flex lg:gap-5 gap-2'>
-            <div className='w-[120px] h-[120px]'>
+            <div className='lg:w-[120px] lg:h-[120px] w-[80px] h-[80px]'>
               <Image
                   src={image}
                   width='120'
                   height='120'
                   alt='nike'
-                  className='object-center max-w-[120px] max-h-[120px]'
+                  className='object-center lg:max-w-[120px] lg:max-h-[120px] max-w-[60px] max-h-[60px]'
               />
             </div>
             
             <div className='flex flex-col'>
-                <h3 className='lg:font-semibold font-medium lg:text-xl text-base text-[#101928] mb-1'>{name} X {quantity}</h3>
+                <h3 className='lg:font-semibold font-medium lg:text-xl text-xs text-[#101928] mb-1'>{name} X {quantity}</h3>
                 <p className='font-normal lg:text-sm text-xs text-[#475367] mb-1'>Color : Black</p>
                 <p className='font-normal lg:text-sm text-xs text-[#475367] mb-1'>Size: 41</p>
             </div>
         </div>
         <div className='flex flex-col justify-between'>
-          <h3 className='font-semibold lg:text-xl text-base text-[#101928]'>₦{price}</h3>
+          <h3 className='font-semibold lg:text-xl text-xs text-[#101928]'>₦{price}</h3>
           <span className='flex justify-end cursor-pointer' onClick={()=>handleDeleteItem(id)}>
             <svg width="14" height="21" viewBox="0 0 14 21" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4.5001 0.25C4.08444 0.25 3.71212 0.507129 3.56492 0.895852L3.33532 1.50213C2.84314 1.45295 2.38967 1.40387 2.02258 1.36265C1.74817 1.33184 1.52259 1.30549 1.3659 1.28687L1.18515 1.26518L1.12377 1.25768C0.575675 1.18981 0.0755572 1.57901 0.00768431 2.1271C-0.0601894 2.6752 0.32911 3.17455 0.877208 3.24242L0.943999 3.25059L1.12998 3.27291C1.29032 3.29196 1.52019 3.31881 1.79942 3.35016C2.35738 3.41281 3.11468 3.49369 3.90922 3.5662C4.981 3.66401 6.15583 3.75 7.0001 3.75C7.84438 3.75 9.01921 3.66401 10.091 3.5662C10.8855 3.49369 11.6428 3.41281 12.2008 3.35016C12.48 3.31881 12.7099 3.29196 12.8702 3.27291L13.0562 3.25059L13.1229 3.24244C13.671 3.17456 14.0604 2.6752 13.9925 2.1271C13.9247 1.57901 13.4253 1.18972 12.8772 1.25758L12.8151 1.26518L12.6343 1.28687C12.4776 1.30549 12.252 1.33184 11.9776 1.36265C11.6105 1.40387 11.1571 1.45295 10.6649 1.50213L10.4353 0.895852C10.2881 0.507129 9.91577 0.25 9.5001 0.25H4.5001Z" fill="#98A2B3"/>
