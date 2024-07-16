@@ -5,6 +5,7 @@ import axios from 'axios'
 import CardLoader from '@/components/skeleton-loader/CardLoader'
 import ProductCard from '@/components/ProductCard'
 import { CartContext } from '@/contexts/cartContext'
+import { toast } from "react-toastify";
 
 
 function Index() {
@@ -22,6 +23,9 @@ function Index() {
             id:product.id,
             quantity:1
         } })
+        toast.success('Item added to cart', {
+            theme: "colored",
+          })
     }
 
     const clearCart = () => {

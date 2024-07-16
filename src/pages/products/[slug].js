@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import { CartContext } from '@/contexts/cartContext'
+import { toast } from "react-toastify";
 
 function ProductDetails() {
     const router = useRouter()
@@ -23,6 +24,9 @@ function ProductDetails() {
             id:product.id,
             quantity:quantity
         } })
+        toast.success('Item added to cart', {
+            theme: "colored",
+          })
     }
 
     const handleIncrease = () => {
