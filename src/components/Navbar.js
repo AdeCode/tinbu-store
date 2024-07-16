@@ -54,7 +54,7 @@ function Navbar() {
                     </div>
                 </div>
             </div>
-            <div className='flex flex-col lg:flex-row bg-white justify-between items-center lg:px-[100px] py-2 px-2 lg:py-5'>
+            <div className='flex flex-col gap-4 lg:gap-0 lg:flex-row bg-white justify-between items-center lg:px-[100px] py-2 px-2 lg:py-5'>
                 <div className='flex lg:gap-10 md:gap-24 gap-12  items-center'>
                     <div className='h-8'>
                         <Link href='/'>
@@ -67,7 +67,7 @@ function Navbar() {
                         </Link>
                     </div>
                     <div className='flex justify-between items-center'>
-                        <ul className='flex lg:h-full justify-between items-center text-primaryText font-medium lg:text-lg text-sm lg:gap-9 gap-4'>
+                        <ul className='flex lg:h-full justify-between items-center text-primaryText font-medium lg:text-lg text-xs lg:gap-9 gap-2'>
                             <li className='h-full'>
                                 <Link className='h-full flex items-center' href='/products'>Men</Link>
                             </li>
@@ -94,7 +94,7 @@ function Navbar() {
                         </div>
                     </form>
                     <div className='flex justify-between items-center'>
-                        <ul className='flex lg:h-full justify-between items-center text-primaryText font-medium lg:text-lg text-sm lg:gap-9 gap-2 mr-4'>
+                        <ul className='flex lg:h-full justify-between items-center text-primaryText font-medium lg:text-lg text-xs lg:gap-9 gap-2 mr-4'>
                             <li className='h-full'>
                                 <Link className='h-full flex flex-col lg:gap-3 gap-1' href='/'>
                                     <div className='flex justify-center'>

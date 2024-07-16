@@ -4,7 +4,7 @@ import React from 'react'
 function FeaturedCollection() {
     return (
         <section className='lg:mb-[91px] mb-5'>
-            <div className='flex justify-between'>
+            <div className='flex justify-between px-4'>
                 <h2 className='text-brand-black font-semibold lg:text-[28px] text-xl lg:mb-[32px] mb-4'>Featured Collections</h2>
                 <div className='flex gap-2'>
                     <h3 className='text-brand-orange text-sm font-semibold'>View all</h3>
@@ -14,8 +14,8 @@ function FeaturedCollection() {
                 </div>
             </div>
             <div className='flex flex-col lg:flex-row justify-between'>
-                <div className='lg:w-[596px] flex flex-col justify-between bg-bg-left bg-center bg-cover pt-10 px-10 pb-20'>
-                    <h3 className='bg-brand-orange lg:w-[205px] text-white text-sm font-semibold rounded-xl py-1 px-3'>
+                <div className='lg:w-[596px] flex flex-col justify-between bg-bg-left bg-center bg-cover pt-10 lg:px-10 px-4 pb-20'>
+                    <h3 className='bg-brand-orange lg:w-[205px] w-fit text-white text-sm font-semibold rounded-xl py-1 px-3'>
                         WORLD GIRLFRIEND’S DAY
                     </h3>
                     <div className=''>
@@ -23,7 +23,7 @@ function FeaturedCollection() {
                             Free Delivery on all dresses ordered until November 30
                         </h2>
                         <p className='font-normal text-sm opacity-80 text-white mb-6'>All the sleekest dress for you to twin with your girlfriends.</p>
-                        <button className="bg-[#F56630] text-white flex lg:w-[141px] rounded-lg h-[56px] items-center 
+                        <button className="bg-[#F56630] text-white flex w-[141px] rounded-lg h-[56px] items-center 
                             justify-center text-base font-semibold gap-2">Shop now
                             <svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M9.08315 11.3707C9.80795 10.6006 9.80795 9.39937 9.08315 8.62927L1.7282 0.814638C1.34969 0.412464 0.716812 0.393286 0.314638 0.771803C-0.0875353 1.15032 -0.106714 1.78319 0.271803 2.18537L7.62675 10L0.271803 17.8146C-0.106713 18.2168 -0.0875345 18.8497 0.314639 19.2282C0.716813 19.6067 1.34969 19.5875 1.7282 19.1854L9.08315 11.3707Z" fill="white" />

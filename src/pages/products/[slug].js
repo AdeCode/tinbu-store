@@ -48,6 +48,9 @@ function ProductDetails() {
             setProductLoading(false)
         } catch (err) {
             console.log(err)
+            toast.error('Could not load product details', {
+                theme: "colored",
+              })
             setProductLoading(false)
         }
     }
@@ -62,9 +65,9 @@ function ProductDetails() {
                 productLoading ?
                     'Loading...'
                     :
-                    <div className='lg:px-[100px] px-3 py-[91px] flex flex-col lg:flex-row justify-between'>
+                    <div className='lg:px-[100px] px-3 lg:py-[91px] py-5 flex flex-col lg:flex-row justify-center lg:gap-10 gap-5'>
                         <div className='lg:w-[548px]'>
-                            <div className='min-w-[548px] min-h-[696px]'>
+                            <div className='lg:min-w-[548px] lg:min-h-[696px]'>
                                 {
                                     product?.photos?.length > 0 ? 
                                     <Image
@@ -142,23 +145,23 @@ function ProductDetails() {
                             </div>
                             <h3 className='font-bold text-2xl text-[#101928]'>₦ 
                                 {product.current_price ? product.current_price : '13,000'}</h3>
-                            <h3 className='mb-4'>Choose a Color</h3>
+                            <h3 className='mb-2'>Choose a Color</h3>
                             <Image
                                 src="/assets/images/color.png"
                                 width='306'
                                 height='56'
                                 alt='color'
-                                className='mb-12'
+                                className='mb-6'
                             />
-                            <h3 className='mb-4'>Choose a Color</h3>
+                            <h3 className='mb-2'>Choose a Color</h3>
                             <Image
                                 src="/assets/images/size.png"
                                 width='532'
                                 height='56'
                                 alt='color'
-                                className='mb-12'
+                                className='mb-6'
                             />
-                            <h3 className='mb-4'>Quantity</h3>
+                            <h3 className='mb-2'>Quantity</h3>
                             <div className='flex flex-col lg:flex-row mb-6 gap-4 lg:items-center'>
                                 <div className='flex w-[200px] rounded-[40px] justify-between items-center bg-[#F0F2F5] py-5 px-[30px]'>
                                     <button className='text-[#667185] text-2xl' onClick={handleDecrease}>-</button>

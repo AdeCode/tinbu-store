@@ -11,15 +11,15 @@ function PopularCard({name,price,img,productId}) {
     }
 
   return (
-    <div className='flex flex-col w-full lg:w-[286px] cursor-pointer' onClick={gotoDetails}>
-        <div className='w-[286px] h-[260px]'>
+    <div className='flex flex-col w-full lg:w-[286px] cursor-pointer px-6 lg:px-0' onClick={gotoDetails}>
+        <div className='lg:w-[286px] w-full lg:h-[260px] mb-4 flex justify-center'>
             <Image
                 src='/assets/products/hill-shoe.png'
                 width='286'
                 height='260'
                 alt='product'
                 objectFit="cover"
-                className='mb-4 object-center max-w-[286px] max-h-[260px]'
+                className='object-center lg:max-w-[286px] lg:max-h-[260px]'
             />
         </div>
         <div className='flex flex-col'>

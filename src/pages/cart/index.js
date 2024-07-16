@@ -38,9 +38,9 @@ function Index() {
     return (
         <div className='lg:px-[100px] px-3 flex flex-col lg:flex-row justify-between py-4 lg:my-0 lg:py-[72px] gap-4'>
             <div className='lg:p-8 p-3 flex flex-col overflow-y-scroll lg:w-[760px] lg:h-[558px] rounded-[10px] border gap-6 border-[#d4d5d8]'>
-                <div className='flex lg:gap-4 gap-2'>
-                    <h2 className='font-semibold text-2xl'>Cart</h2>
-                    <p className='w-9 h-9 bg-[#F56630] rounded-[30px] font-semibold text-lg text-white text-center flex items-center justify-center'>
+                <div className='flex items-center lg:gap-4 gap-2'>
+                    <h2 className='font-semibold lg:text-2xl text-lg'>Cart</h2>
+                    <p className='lg:w-9 lg:h-9 w-5 h-5 bg-[#F56630] rounded-[30px] font-semibold lg:text-lg text-sm text-white text-center flex items-center justify-center'>
                         {state.items.length}
                     </p>
                 </div>
